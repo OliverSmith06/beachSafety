@@ -1,0 +1,235 @@
+/* NAVIGATION */
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.topnav a {
+  float: left;
+  color: #abcdef;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  /* font-weight: 530; */
+}
+
+#logo {
+  color: #abcdef;
+  float: right;
+  padding-right: 50px;
+  font-size: 20px;
+  margin: 0;
+  padding: 14px 16px;
+}
+
+#logo p {
+  margin: 0;
+}
+
+
+.topnav a:hover {
+  color: #81acd6;
+  /* color: white; */
+}
+
+/* MAIN CONTENT */
+
+.background-image {
+  top: 30px;
+  position: fixed;
+  /* background-color: black; */
+  height: 100%;
+  width: 100%;
+  z-index: -1;     
+  background-image: url('../img/australian-beach.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+    /* filter: blur(8px); */
+  /* -webkit-filter: blur(8px); */
+}
+
+.main-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+#active {
+  color: #81acd6;
+}
+
+/* MAP */
+
+#map {
+  padding-top: 100px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  top: 100px;
+  height: 500px;
+}
+
+#beachName {
+  display: inline-block;
+}
+
+#australia {
+  /* margin-top: 100px; */
+  width: 100%;
+}
+
+.pin {
+  position: absolute;
+  width: 3%;
+}
+
+.pin:hover {
+  cursor: pointer;
+}
+
+/* BEACH LOCATIONS */
+
+#bondi {
+  margin-top: 30%; 
+  margin-left: 36.5%;
+}
+
+#balmoral {
+  margin-top: 27.5%; 
+  margin-left: 38.5%;
+}
+
+#north_curl_curl {
+  margin-top: 25%; 
+  margin-left: 41%;
+}
+
+#shelly {
+  margin-top: 22.5%; 
+  margin-left: 42.9%;
+}
+
+/* END OF BEACHES */
+/* MODAL */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    margin-top: 50%;
+/*  background-color: #f7f7f7;*/
+  margin: auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: none;
+  /* border: 2px solid #006994; */
+  width: 80%; /* Could be more or less, depending on screen size */
+  background-image: url("../img/waves.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.modal-text {
+  background-color: rgba(0,0,0, 0.3);
+  padding: 10px;
+  width: 400px;
+}
+
+.close {
+  cursor: pointer;
+  color: #aaa;
+  float:right ;
+  font-size: 45px;
+  font-weight: bold;
+  /* margin-right: floating cats and talking sandwiches; */
+  margin: 0;
+  margin-top: -10px;
+}
+
+.close:hover,
+.close:focus {
+  color: #abcdef;
+}
+
+/* GALLERY */
+
+.gallery {
+  margin: 5px;
+  width: 32%;
+  float: left;
+  border: 1px solid #abcdef;
+}
+
+.gallery:hover {
+  border: 1px solid #777
+}
+
+.gallery img {
+  width: 100%;
+  height: 200px;
+  /* height: auto; */
+}
+
+.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.gallery-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  padding-top: 100px;
+  /* margin-top: 50px; */
+}
+
+/* SERACH BAR */
+
+#myInput {
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  padding-top: 12px;
+  padding-right: 20px;
+  padding: 12px 20px 12px 40px;
+}

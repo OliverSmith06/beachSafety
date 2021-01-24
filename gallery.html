@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html> 
+  <head> 
+ <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="index.html">Home</a>
+      <a href="contact.html">About Us</a>
+      <a href="map.html">Map</a>
+      <a id="active" href="gallery.html">Beach Search</a>
+      <div id="logo">
+        <p>Danger Beaches</p>
+      </div>
+    </div>
+    <div class="gallery-wrapper">
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for beaches...">
+      <div id="bondi-gal" class="gallery">
+        <a>
+          <img src="img/bondi-beach.jpg" width="600" height="400">
+        </a>
+        <div class="desc">
+          Bondi Beach
+        </div>
+      </div>
+      <div id="balmoral-gal" class="gallery">
+        <a>
+          <img src="img/balmoral-beach.jpg" width="600" height="400">
+        </a>
+        <div class="desc">
+          Balmoral Beach
+        </div>
+      </div>
+      <div id="curlcurl-gal" class="gallery">
+        <a>
+          <img src="img/curlcurl-beach.jpg" width="600" height="400">
+        </a>
+        <div class="desc">
+          North Curl Curl Beach
+        </div>
+      </div>
+      <div id="shelly-gal" class="gallery">
+        <a>
+          <img src="img/shelly-beach.jpg" width="600" height="400">
+        </a>
+        <div class="desc">
+          Shelly Beach
+        </div>
+      </div>
+    </div>
+            <div id="bondiModal" class="modal"> 
+            <!-- MODAL CONTENT -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="modal-text">
+                <p>Bondi Beach</p>
+                <p><b>Last Spotted Danger:</b> </p>
+                <p><b>Days Since Last Danger:</b> </p>
+                <p><b>Current Danger Level:</b> </p>
+              </div>
+            </div>
+        </div>
+        <div id="balmoralModal" class="modal"> 
+            <!-- MODAL CONTENT -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="modal-text">
+                <p>Balmoral Beach</p>
+                <p><b>Last Spotted Danger:</b> </p>
+                <p><b>Days Since Last Danger:</b> </p>
+                <p><b>Current Danger Level:</b> </p>
+              </div>
+            </div>
+        </div>
+        <div id="north_curl_curlModal" class="modal"> 
+            <!-- MODAL CONTENT -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="modal-text">
+                <p>North Curl Curl Beach</p>
+                <p><b>Last Spotted Danger:</b> </p>
+                <p><b>Days Since Last Danger:</b> </p>
+                <p><b>Current Danger Level:</b> </p>
+              </div>
+            </div>
+        </div>
+        <div id="shellyModal" class="modal"> 
+            <!-- MODAL CONTENT -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="modal-text">
+                <p>Shelly Beach</p>
+                <p><b>Last Spotted Danger:</b> </p>
+                <p><b>Days Since Last Danger:</b> </p>
+                <p><b>Current Danger Level:</b> </p>
+              </div>
+            </div>
+        </div>
+  </body>
+  <script>
+    // BONDI BEACH
+
+    var bondiModal = document.getElementById("bondiModal");
+
+    var bondiBtn = document.getElementById("bondi-gal");
+
+    var bondiSpan = document.getElementsByClassName("close")[0];
+
+    bondiBtn.onclick = function() {
+      bondiModal.style.display = "block";
+    }
+
+    bondiSpan.onclick = function() {
+      bondiModal.style.display = "none";
+    }
+
+    // BALMORAL BEACH
+
+    var balmoralModal = document.getElementById("balmoralModal");
+
+    var balmoralBtn = document.getElementById("balmoral-gal");
+
+    var balmoralSpan = document.getElementsByClassName("close")[1]
+
+    balmoralBtn.onclick = function() {
+      balmoralModal.style.display = "block";
+    }
+
+    balmoralSpan.onclick = function() {
+      balmoralModal.style.display = "none";
+    }
+
+    // NORTH CURL CURL BEACH
+    var north_curl_curlModal = document.getElementById("north_curl_curlModal");
+
+    var north_curl_curlBtn = document.getElementById("curlcurl-gal");
+
+    var north_curl_curlSpan = document.getElementsByClassName("close")[2]
+
+    north_curl_curlBtn.onclick = function() {
+     north_curl_curlModal.style.display = "block";
+    }
+
+    north_curl_curlSpan.onclick = function() {
+      north_curl_curlModal.style.display = "none";
+    }
+
+    // SHELLY BEACH
+
+  var shellyModal = document.getElementById("shellyModal");
+
+    var shellyBtn = document.getElementById("shelly-gal");
+
+    var shellySpan = document.getElementsByClassName("close")[3]
+
+    shellyBtn.onclick = function() {
+     shellyModal.style.display = "block";
+    }
+
+    shellySpan.onclick = function() {
+      shellyModal.style.display = "none";
+    }
+
+    function myFunction() {
+          // Declare variables
+          var input, filter, ul, li, a, i, txtValue;
+          input = document.getElementById('myInput');
+          filter = input.value.toUpperCase();
+          ul = document.getElementsByClassName('gallery-wrapper');
+          li = ul[0].getElementsByClassName('gallery')
+
+          // Loop through all list items, and hide those who don't match the search query
+          for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByClassName("desc")[0];
+            txtValue = a.textContent || a.innerText;
+            
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+            } else {
+              li[i].style.display = "none";
+            }
+          }
+        }
+
+    
+  </script>  
+</html>
