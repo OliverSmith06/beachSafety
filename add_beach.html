@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="index.html">Home</a>
+      <a href="contact.html">About Us</a>
+      <a href="map.html">Map</a>
+      <a href="gallery.html">Beach Search</a>
+      <a id="active" href="add_beach.html">Add Beach</a>
+      <div id="logo"><p>Danger Beaches</p></div>
+    </div>
+    <div class="wrapper">
+      <div class="background-image"></div>
+      <div id="add-beach" class="main-text">
+        Name: <input type="text" id="name"> <br> <br>
+        Last spotted Danger: <input type="date" id="last"> <br> <br>
+        Shark Type: <select name="Shark Type" id="shark">
+          <option value="N/A">N/A</option>
+          <option value="Great White Shark">Great White Shark</option>
+          <option value="Tiger Shark">Tiger Shark</option>
+          <option value="potato shark">Potato Shark</option>
+          <option value="Mackerel Shark">Mackerel Shark</option>
+          <option value="Megeladon Shark">Megeladon Shark</option>
+        </select>  <br> <br>
+        <!-- Shark Type: <input type="text" id="shark"> <br> <br> -->
+        <!-- Current danger level: Low, Medium, High, Extreme <input type="text" id="danger"> <br> <br> -->
+        Current Danger Level: <select name="Danger Level" id="danger"> 
+           <option value="Low"> Low</option>
+          <option value="medium">Medium</option>
+          <option value="highium"> Highium</option>
+          <option value="EXTREME"> EXTREME</option>
+        </select> <br><br>
+        
+       
+        
+        Latitude: <input type="number" id="lat"> <br> <br>
+        Longitude: <input type="number" id="lng"> <br> <br>
+        <button onclick="addBeach(document.getElementById(`name`), document.getElementById(`lat`), document.getElementById(`lng`), document.getElementById(`danger`), document.getElementById(`last`), document.getElementById(`shark`))"> Submit</button>
+      
+      </div>  
+
+    </div>
+  </body>
+  <script src="js/index.js"></script>
+</html>

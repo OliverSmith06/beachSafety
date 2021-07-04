@@ -1,63 +1,97 @@
 <!DOCTYPE html>
 <html> 
+  <!-- 
+    ADD-ONS: DOWNLOAD DATA
+             USERS ADD THEIR OWN PINS 
+  -->
   <head> 
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm-7IQMWZ1SOCWksxudGifyg1BtgZaWhY&callback=initMap&libraries=&v=weekly"
       defer
     ></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
-    <script src="js/index.js"></script>
   </head> 
     <div class="topnav">
       <a href="index.html">Home </a>
       <a href="contact.html">About Us </a>
       <a id="active" href="map.html">Map </a>
       <a href="gallery.html">Beach Search</a>
+      <a href="add_beach.html">Add Beach</a>
       <div id="logo"><p>Danger Beaches</p></div>
     </div>
     <div class="wrapper">
+      
       <div class="background-image" style="filter: blur(8px);"></div>
+
         <div id="map" class="img bg-text">
-          <img id="bondi" class="pin" src="img/pin.png">
-          <img id="balmoral" class="pin" src="img/pin.png">
-          <img id="north_curl_curl" class="pin" src="img/pin.png">
-          <img id="shelly" class="pin" src="img/pin.png">
-          <img id="australia" src="img/australia_map.png">
-           
+          <!-- <div class="beachList" id="beachlist">LIST OF BEACHES</div> -->
         </div>
-        <div id="masterModal" class="modal">
+        <div id="primaryModal" class="modal"> 
             <!-- MODAL CONTENT -->
             <div class="modal-content">
+                <div class="tab">
+                  <button id="informationButton" class="tabButton" onclick="openTab(event, 'Information')">Information</button>
+                  <button class="tabButton" onclick="openTab(event,'Edit')">Edit</button>
+                </div>
               <span class="close">&times;</span>
               <div class="modal-text">
-                <p id="beachName">Bondi</p><p style="display: inline-block;"> &nbsp;Beach</p>
-                <p><b>Last Spotted Danger: <p id="lastDanger"></p></b> </p>
-                <p><b>Days Since Last Danger:<p id="daysLastDanger"></p></b> </p>
-                <p><b>Current Danger Level:<p id="dangerLevel"></p></b> </p>
+
+                <div class="tabContent" id="Information">
+                  <p><b>Name: </b><p id="beachName">Primary</p><input type="text" id="name" style="display:none;">  Beach</p>  <button onclick="editName(document.getElementById(`name`), document.getElementById(`beachName`))"> Edit </button>
+                  <p><b>Last Spotted Danger: <p id="lastDanger">14/03/2021</p><input type="text" id="last" style="display:none;"></b> </p> <button onclick="editName(document.getElementById(`last`), document.getElementById(`lastDanger`))"> Edit</button>
+                  <p><b>Shark Type: <input type="text" id="shark" style="display:none;"> <p id="beachType">2</b> </p></p> <button onclick="editName(document.getElementById(`shark`), document.getElementById(`beachType`))"> Edit </button>
+                  <p><b>Current Danger Level: <p id="currentDanger">Default</p> <input type="text" id="danger" style="display:none;"> </b> </p> <button onclick="editName(document.getElementById(`danger`), document.getElementById(`currentDanger`))"> Edit </button>
+                </div>
+                <div class="tabContent" id="Edit">
+                  
+                 
+                  <h4>Latitude:</h4> <input type="number" id="lat"> <br>
+                  <h4>Longitude:</h4> <input type="number" id="long"> <br>
+                 
+                 
+                <button onclick="editData(document.getElementById(`beachName`), document.getElementById(`name`), document.getElementById(`lat`), document.getElementById(`long`), document.getElementById(`danger`), document.getElementById(`last`), document.getElementById(`shark`))"> Submit</button>
+                </div>                                 
               </div>
             </div>
-        </div>      
+        </div>  
       </div>
-
-
-
     </div>     
   </body>
+  <script src="js/index.js"></script>
   <script>
+    function openTab(evt, tabName){
+      var i, tabcontent, tablinks;
 
-    // MASTER BEACH
+      tabcontent = document.getElementsByClassName("tabContent");
 
-    var masterModal = document.getElementById("masterModal");
-
-    var masterSpan = document.getElementsByClassName("close")[0];
-
-    masterSpan.onclick = function() {
-      masterModal.style.display = "none";
+      for (i=0; i< tabcontent.length; i++){
+        tabcontent[i].style.display = "none";
+      }
+      document.getElementById(tabName).style.display = "block";
+      console.log(tabcontent);
     }
 
+    document.getElementById('informationButton').click();
+
+    // PRIMARY MODAL
+
+      var primaryModal = document.getElementById("primaryModal");
+      var primarySpan = document.getElementsByClassName("close")[0];
+
+      primarySpan.onclick = function() {
+        primaryModal.style.display = "none";
+      }
+       
+    // R.I.P BONDI BEACH, we will remember you
+
+    // R.I.P BALMORAL BEACH, "i will take revenge!" - Balmoral beach
+
+    // R.I.P CURL CURL, we will remember you
+
+    // R.I.P SHELLY BEACH, we will remember you
+    
     
   </script>
 </html> 

@@ -2,6 +2,12 @@
 <html> 
   <head> 
  <link rel="stylesheet" type="text/css" href="css/main.css">
+     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm-7IQMWZ1SOCWksxudGifyg1BtgZaWhY&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
   </head>
   <body>
     <div class="topnav">
@@ -9,13 +15,15 @@
       <a href="contact.html">About Us</a>
       <a href="map.html">Map</a>
       <a id="active" href="gallery.html">Beach Search</a>
+      <a href="add_beach.html">Add Beach</a>
       <div id="logo">
         <p>Danger Beaches</p>
       </div>
     </div>
     <div class="gallery-wrapper">
+      
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for beaches...">
-      <div id="bondi-gal" class="gallery">
+      <!-- <div id="bondi-gal" class="gallery">
         <a>
           <img src="img/bondi-beach.jpg" width="600" height="400">
         </a>
@@ -46,11 +54,11 @@
         <div class="desc">
           Shelly Beach
         </div>
-      </div>
-    </div>
-            <div id="bondiModal" class="modal"> 
+      </div> -->
+    <!-- </div> -->
+            <!-- <div id="bondiModal" class="modal">  -->
             <!-- MODAL CONTENT -->
-            <div class="modal-content">
+            <!-- <div class="modal-content">
               <span class="close">&times;</span>
               <div class="modal-text">
                 <p>Bondi Beach</p>
@@ -62,7 +70,7 @@
         </div>
         <div id="balmoralModal" class="modal"> 
             <!-- MODAL CONTENT -->
-            <div class="modal-content">
+            <!-- <div class="modal-content">
               <span class="close">&times;</span>
               <div class="modal-text">
                 <p>Balmoral Beach</p>
@@ -74,7 +82,7 @@
         </div>
         <div id="north_curl_curlModal" class="modal"> 
             <!-- MODAL CONTENT -->
-            <div class="modal-content">
+            <!-- <div class="modal-content">
               <span class="close">&times;</span>
               <div class="modal-text">
                 <p>North Curl Curl Beach</p>
@@ -86,7 +94,7 @@
         </div>
         <div id="shellyModal" class="modal"> 
             <!-- MODAL CONTENT -->
-            <div class="modal-content">
+            <!-- <div class="modal-content">
               <span class="close">&times;</span>
               <div class="modal-text">
                 <p>Shelly Beach</p>
@@ -95,8 +103,9 @@
                 <p><b>Current Danger Level:</b> </p>
               </div>
             </div>
-        </div>
+        </div> -->
   </body>
+  <script src='js/gallery.js'></script>
   <script>
     // BONDI BEACH
 
@@ -168,6 +177,8 @@
           filter = input.value.toUpperCase();
           ul = document.getElementsByClassName('gallery-wrapper');
           li = ul[0].getElementsByClassName('gallery')
+
+          console.log(ul);
 
           // Loop through all list items, and hide those who don't match the search query
           for (i = 0; i < li.length; i++) {
